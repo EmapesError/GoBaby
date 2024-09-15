@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Information</title>
+    <title>Cart Page</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -14,7 +14,6 @@
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
-            overflow: hidden;
         }
 
         .container {
@@ -25,18 +24,6 @@
             margin: 20px 0;
             border-radius: 10px;
             box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1.2s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         h2 {
@@ -44,34 +31,10 @@
             margin-bottom: 20px;
             color: #333333;
             text-align: center;
-            animation: slideInFromLeft 1s ease-out;
-        }
-
-        @keyframes slideInFromLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
         }
 
         .form-group {
             margin-bottom: 15px;
-            animation: slideInFromRight 1s ease-out;
-        }
-
-        @keyframes slideInFromRight {
-            from {
-                opacity: 0;
-                transform: translateX(100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
         }
 
         .form-group label {
@@ -91,23 +54,13 @@
         }
 
         .form-group select {
-            max-height: 200px;  /* Limit the height of dropdown */
-            overflow-y: auto;  /* Enable scrolling within the dropdown */
+            max-height: 200px;
+            overflow-y: auto;
         }
 
         .summary-container {
             text-align: center;
             margin-top: 30px;
-            animation: zoomIn 1.5s ease-out;
-        }
-
-        @keyframes zoomIn {
-            from {
-                transform: scale(0);
-            }
-            to {
-                transform: scale(1);
-            }
         }
 
         .checkout-button {
