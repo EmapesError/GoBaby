@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart & User Info</title>
+    <title>User Information</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -14,100 +14,64 @@
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
+            overflow: hidden;
         }
 
         .container {
             width: 90%;
-            max-width: 1200px;
+            max-width: 600px;
             background-color: #ffffff;
             padding: 40px;
             margin: 20px 0;
             border-radius: 10px;
             box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.2s ease-out;
         }
 
-        h1 {
-            font-size: 36px;
-            margin-bottom: 30px;
-            color: #333333;
-            text-align: center;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 30px;
-        }
-
-        table th, table td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #dddddd;
-        }
-
-        table th {
-            background-color: #f5f5f5;
-            color: #333;
-        }
-
-        table td img {
-            width: 80px;
-            border-radius: 5px;
-        }
-
-        .cart-item {
-            display: flex;
-            align-items: center;
-        }
-
-        .cart-item-details {
-            margin-left: 15px;
-        }
-
-        .cart-item-details h3 {
-            margin: 0;
-            font-size: 18px;
-            color: #555555;
-        }
-
-        .cart-item-details p {
-            margin: 5px 0 0;
-            font-size: 14px;
-            color: #999999;
-        }
-
-        .quantity-input {
-            width: 50px;
-            padding: 8px;
-            border: 1px solid #dddddd;
-            border-radius: 5px;
-            text-align: center;
-        }
-
-        .remove-button {
-            color: #ff4d4d;
-            cursor: pointer;
-            border: none;
-            background: none;
-            font-size: 16px;
-        }
-
-        .remove-button:hover {
-            text-decoration: underline;
-        }
-
-        .user-info-container {
-            margin-top: 40px;
-        }
-
-        .user-info-container h2 {
+        h2 {
             font-size: 28px;
             margin-bottom: 20px;
             color: #333333;
+            text-align: center;
+            animation: slideInFromLeft 1s ease-out;
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .form-group {
             margin-bottom: 15px;
+            animation: slideInFromRight 1s ease-out;
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .form-group label {
@@ -127,13 +91,18 @@
         }
 
         .summary-container {
-            text-align: right;
+            text-align: center;
             margin-top: 30px;
+            animation: zoomIn 1.5s ease-out;
         }
 
-        .summary-container p {
-            font-size: 18px;
-            margin-bottom: 15px;
+        @keyframes zoomIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
         }
 
         .checkout-button {
@@ -156,96 +125,58 @@
         .checkout-button:active {
             box-shadow: none;
         }
-
-        .form-group select option {
-            font-size: 16px;
-        }
-
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Your Shopping Cart</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Subtotal</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <div class="cart-item">
-                            <img src="https://via.placeholder.com/80" alt="Product Image">
-                            <div class="cart-item-details">
-                                <h3>Product Name 1</h3>
-                                <p>Short description of the product.</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td><input class="quantity-input" type="number" value="1"></td>
-                    <td>$50.00</td>
-                    <td>$50.00</td>
-                    <td><button class="remove-button">Remove</button></td>
-                </tr>
-            </tbody>
-        </table>
+        <h2>User Information</h2>
+        <form action="payment.html" method="GET">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
 
-        <div class="user-info-container">
-            <h2>User Information</h2>
-            <form action="payment.html" method="GET">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-                </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
 
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-                </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
 
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-                </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Create a password" required>
+            </div>
 
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Create a password" required>
-                </div>
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select id="country" name="country" required>
+                    <option value="">Select your country</option>
+                    <option value="USA">United States</option>
+                    <option value="CAN">Canada</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="AUS">Australia</option>
+                    <!-- Add more country options as needed -->
+                </select>
+            </div>
 
-                <div class="form-group">
-                    <label for="country">Country</label>
-                    <select id="country" name="country" required>
-                        <option value="">Select your country</option>
-                        <option value="USA">United States</option>
-                        <option value="CAN">Canada</option>
-                        <option value="UK">United Kingdom</option>
-                        <option value="AUS">Australia</option>
-                        <!-- Add more country options as needed -->
-                    </select>
-                </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" placeholder="Enter your city" required>
+            </div>
 
-                <div class="form-group">
-                    <label for="city">City</label>
-                    <input type="text" id="city" name="city" placeholder="Enter your city" required>
-                </div>
+            <div class="form-group">
+                <label for="pincode">Postal Code / Pincode</label>
+                <input type="text" id="pincode" name="pincode" placeholder="Enter your postal code or pincode" required>
+            </div>
 
-                <div class="form-group">
-                    <label for="pincode">Postal Code / Pincode</label>
-                    <input type="text" id="pincode" name="pincode" placeholder="Enter your postal code or pincode" required>
-                </div>
-
-                <div class="summary-container">
-                    <p><strong>Total: $50.00</strong></p>
-                    <button type="submit" class="checkout-button">Continue to Payment</button>
-                </div>
-            </form>
-        </div>
+            <div class="summary-container">
+                <button type="submit" class="checkout-button">Continue to Payment</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>
