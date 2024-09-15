@@ -90,6 +90,11 @@
             box-sizing: border-box;
         }
 
+        .form-group select {
+            max-height: 200px;  /* Limit the height of dropdown */
+            overflow-y: auto;  /* Enable scrolling within the dropdown */
+        }
+
         .summary-container {
             text-align: center;
             margin-top: 30px;
@@ -168,7 +173,7 @@
                     <option value="RUS">Russia</option>
                     <option value="MEX">Mexico</option>
                     <option value="ZAF">South Africa</option>
-                    <!-- Add all other countries similarly -->
+                    <!-- Add more country options as needed -->
                 </select>
             </div>
 
